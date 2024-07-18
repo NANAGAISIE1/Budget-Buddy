@@ -2,26 +2,23 @@ import * as React from "react";
 import {
   Button,
   Platform,
-  Pressable,
   ScrollView,
   StyleSheet,
   Text,
   TextStyle,
-  TouchableHighlight,
   TouchableOpacity,
-  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import { Category, Transaction, TransactionsByMonth } from "../types";
 import { useSQLiteContext } from "expo-sqlite/next";
 import TransactionList from "../components/TransactionsList";
 import Card from "../components/ui/Card";
-import AddTransaction from "../components/AddTransaction";
 import { BlurView } from "expo-blur";
 import { SymbolView } from "expo-symbols";
 import { useNavigation } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import SummaryChart from "../components/SummaryChart";
+import AddTransaction from "../components/AddTransaction";
 
 type StackParamList = {
   Payment: undefined;
@@ -116,7 +113,7 @@ export default function Home() {
           paddingVertical: Platform.OS === "ios" ? 170 : 16,
         }}
       >
-        {/* <AddTransaction insertTransaction={insertTransaction} /> */}
+        <AddTransaction insertTransaction={insertTransaction} />
         <TransactionSummary
           totalExpenses={transactionsByMonth.totalExpenses}
           totalIncome={transactionsByMonth.totalIncome}
@@ -195,9 +192,9 @@ function TransactionSummary({
   return (
     <>
       <Card style={styles.container}>
-        {/* <Text style={styles.periodTitle}>Summary for {readablePeriod}</Text> */}
+        <Text style={styles.periodTitle}>Summary for {readablePeriod}</Text>
         <SummaryChart />
-        {/* <Text style={styles.summaryText}>
+        <Text style={styles.summaryText}>
           Income:{" "}
           <Text style={getMoneyTextStyle(totalIncome)}>
             {formatMoney(totalIncome)}
@@ -212,7 +209,7 @@ function TransactionSummary({
         <Text style={styles.summaryText}>
           Savings:{" "}
           <Text style={getMoneyTextStyle(savings)}>{formatMoney(savings)}</Text>
-        </Text> */}
+        </Text>
       </Card>
     </>
   );
