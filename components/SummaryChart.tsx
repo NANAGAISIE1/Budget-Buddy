@@ -48,13 +48,13 @@ export default function SummaryChart() {
 
   const handlePreviousWeek = () => {
     setCurrentDate(
-      () => new Date(currentDate.setDate(currentDate.getDate() - 7))
+      () => new Date(currentDate.setDate(currentDate.getDate() - 7)),
     );
   };
 
   const handleNextWeek = () => {
     setCurrentDate(
-      () => new Date(currentDate.setDate(currentDate.getDate() + 7))
+      () => new Date(currentDate.setDate(currentDate.getDate() + 7)),
     );
   };
 
@@ -62,7 +62,7 @@ export default function SummaryChart() {
   const fetchWeeklyData = async (
     startDate: number,
     endDate: number,
-    type: "Income" | "Expense"
+    type: "Income" | "Expense",
   ) => {
     try {
       const query = `

@@ -50,12 +50,12 @@ export default function Home() {
     const result = await db.getAllAsync<Transaction>(
       `SELECT * FROM Transactions 
        ORDER BY date DESC
-       LIMIT 30;`
+       LIMIT 30;`,
     );
     setTransactions(result);
 
     const categoriesResult = await db.getAllAsync<Category>(
-      `SELECT * FROM Categories;`
+      `SELECT * FROM Categories;`,
     );
     setCategories(categoriesResult);
 
@@ -78,7 +78,7 @@ export default function Home() {
       FROM Transactions
       WHERE date >= ? AND date <= ?;
     `,
-      [startOfMonthTimestamp, endOfMonthTimestamp]
+      [startOfMonthTimestamp, endOfMonthTimestamp],
     );
     setTransactionsByMonth(transactionsByMonth[0]);
   }
@@ -102,7 +102,7 @@ export default function Home() {
           transaction.date,
           transaction.description,
           transaction.type,
-        ]
+        ],
       );
       await getData();
     });

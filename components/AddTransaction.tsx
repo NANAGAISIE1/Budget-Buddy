@@ -32,7 +32,7 @@ export default function AddTransaction({
 
     const result = await db.getAllAsync<Category>(
       `SELECT * FROM Categories WHERE type = ?;`,
-      [type]
+      [type],
     );
     setCategories(result);
   }

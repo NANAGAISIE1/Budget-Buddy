@@ -15,7 +15,7 @@ export default function TransactionList({
     <View style={{ gap: 15 }}>
       {transactions.map((transaction) => {
         const categoryForCurrentItem = categories.find(
-          (category) => category.id === transaction.category_id
+          (category) => category.id === transaction.category_id,
         );
         return (
           <TouchableOpacity

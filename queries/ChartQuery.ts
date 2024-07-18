@@ -1,6 +1,6 @@
 export const processWeeklyData = (
   data: { dayOfWeek: number; total: number }[],
-  transactionsType: "Income" | "Expense" = "Income"
+  transactionsType: "Income" | "Expense" = "Income",
 ) => {
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const isIncome = transactionsType === "Income";
@@ -12,7 +12,7 @@ export const processWeeklyData = (
         value: 0,
         frontColor: "#d1d5db", // default gray color for zero values
         gradientColor: "#d1d5db", // default gray color for zero values
-      } as any)
+      }) as any,
   );
 
   data.forEach((item) => {
